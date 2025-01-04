@@ -5,10 +5,12 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'Poppins', sans-serif;
-    min-height: 100vh;
     display: flex;
-    transition: background 0.3s ease;
-    background: linear-gradient(135deg, #A1C4FD 0%, #C2E9FB 100%); /* Soft gradient background */
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #A1C4FD 0%, #C2E9FB 100%);
+    color: #34495e;
 }
 
 /* Sidebar styles */
@@ -146,16 +148,15 @@ body {
     margin-left: 250px;
     padding: 20px;
     flex-grow: 1;
-    background: #f4f6f9; /* Light grey background for main content */
-    border-radius: 8px;
+    background: #34495e; /* Light grey background for main content */
     box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-.main-content h1 {
-    font-size: 28px;
-    margin-bottom: 10px;
-    font-weight: 600;
-    color: #2c3e50;
+.main-content {
+    height: 100%;
+    display: flex;
+    justify-content: center; /* Center the iframe horizontally */
+    align-items: center; /* Center the iframe vertically */
 }
 
 .main-content p {
@@ -191,4 +192,108 @@ body {
         font-size: 14px;
         padding: 12px 15px;
     }
+}
+
+
+/* Authentication Card */
+.auth-card {
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    width: 400px;
+    text-align: center;
+    animation: slideUp 0.6s ease-out;
+}
+
+@keyframes slideUp {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+input[type="text"], input[type="password"] {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    transition: border-color 0.3s;
+}
+
+input[type="text"]:focus, input[type="password"]:focus {
+    border-color: #3498db;
+    outline: none;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #2980b9;
+}
+
+.switch-form {
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+.switch-form a {
+    color: #3498db;
+    text-decoration: none;
+}
+
+.switch-form a:hover {
+    text-decoration: underline;
+}
+
+/* Main content and sidebar for after login */
+#homepage {
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+    width: 100%;
+    transition: opacity 0.4s ease;
+}
+
+/* Smooth transition for login form and homepage */
+#auth-section, #homepage {
+    transition: opacity 0.4s ease;
+}
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+    .auth-card {
+        width: 90%;
+    }
+    .sidebar {
+        width: 100%;
+        height: auto;
+    }
+    #homepage {
+        margin-left: 0;
+    }
+}
+
+iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 10px;
 }
